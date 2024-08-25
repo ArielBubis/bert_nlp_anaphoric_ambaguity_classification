@@ -1,0 +1,5 @@
+pip
+pandas
+numpy
+spacy
+pathlib
