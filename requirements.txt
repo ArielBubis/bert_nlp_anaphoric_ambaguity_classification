@@ -3,3 +3,9 @@ pandas
 numpy
 spacy
 pathlib
+torch
+transformers
+numpy
+openpyxl
+scikit-learn
+torchinfo

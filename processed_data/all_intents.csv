@@ -1,0 +1,18 @@
+Sentence,Intent
+All material that is stored in the repository will enter it via the Ingest function.,ambiguous
+The library may want to accept important digital materials in non-standard formats in case we are able to migrate them to a more usable format in the future.,unambiguous
+"Once material has arrived, it must undergo several reviews, including virus checking, format compliance and anticipated content and file type.",unambiguous
+Allows resources to be reviewed before a decision is made whether they should be retained.,unambiguous
+Allows metadata to be stored in a database in a manner that conforms to repository reformatting and linked to their corresponding objects via an identifier.,unambiguous
+The Coordinate Updates function also incorporates the storage identification information into the Descriptive Information for the AIP and transfers it to the Data Management entity along with a database update request.,ambiguous
+"Archival Storage functions include receiving AIPs from Ingest and adding them to permanent storage, managing the storage hierarchy, refreshing the media on which archive holdings are stored, performing routine and special error checking, providing disaster recovery capabilities, and providing AIPs to Access to fulfill orders.",unambiguous
+"However, the data constituting the Packaging Information may be changed as long as it continues to perform the same function and there is a straightforward implementation that does not cause information loss.",ambiguous
+"The migration strategy must select a storage medium, taking into consideration the expected and actual rates of errors encountered in various media types, their performance, and their costs of ownership.",ambiguous
+"The migration strategy must select a storage medium, taking into consideration the expected and actual rates of errors encountered in various media types, their performance, and their costs of ownership.",ambiguous
+This function receives an AIP request that identifies the requested AIP(s) and provides them on the requested media type or transfers them to a staging area.,unambiguous
+This function receives an AIP request that identifies the requested AIP(s) and provides them on the requested media type or transfers them to a staging area.,unambiguous
+"The Generate Report function receives a report request from Ingest, Access or Administration and executes any queries or other processes necessary to generate the report that it supplies to the requester.",ambiguous
+"Administration functions include soliciting and negotiating submission agreements with producers, auditing submissions to ensure that they meet archive standards, and maintaining configuration management of system hardware and software.",ambiguous
+Audits data in SIPs or AIPs to ensure that they meet specified requirements.,ambiguous
+The Activate Requests function maintains a record of event-driven requests and periodically compares it to the contents of the archive to determine if all needed data is available.,ambiguous
+Maintains a record of event-driven events and compares it to the contents of the repository.,unambiguous

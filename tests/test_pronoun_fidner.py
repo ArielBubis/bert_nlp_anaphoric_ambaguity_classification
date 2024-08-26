@@ -13,12 +13,12 @@ class TestPronounFinder(unittest.TestCase):
         with open(self.input_csv, "w") as f:
             f.write("This is a test sentence. She loves programming.")
 
-    # def tearDown(self):
-    #     # Remove the temporary files
-    #     if os.path.exists(self.input_csv):
-    #         os.remove(self.input_csv)
-    #     if os.path.exists(self.output_csv):
-    #         os.remove(self.output_csv)
+    def tearDown(self):
+        # Remove the temporary files
+        if os.path.exists(self.input_csv):
+            os.remove(self.input_csv)
+        if os.path.exists(self.output_csv):
+            os.remove(self.output_csv)
 
     def test_single_sentence(self):
         # Run the script
