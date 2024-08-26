@@ -23,7 +23,7 @@ python setup_venv.py
 1. Check if a virtual environment is already activated.
 2. If not, it will create a new virtual environment in the current directory.
 3. Install all the required packages listed in requirements.txt.
-4. 
+
 ### Step 2: Run the Application
 After setting up the virtual environment, you can run the GUI application:
 
