@@ -1,21 +1,12 @@
 import os
 import subprocess
 import sys
-import tkinter as tk
-from tkinter import filedialog, messagebox
-import pandas as pd
-import numpy as np
-import spacy
 
-from model_utils.useModel import get_prediction  # Assuming this function is in useModel.py
-
-# Check if running inside a virtual environment
 def check_venv():
-    if sys.prefix == sys.base_prefix:
-        print("It looks like you are not running this script inside a virtual environment.")
-        print("It's recommended to create a virtual environment and activate it before running this script.")
-        print("Please create a virtual environment by running:\npython -m venv .venv\nAnd then activate it with:\n.venv\\Scripts\\activate (Windows)\nsource .venv/bin/activate (Unix/MacOS)")
-        sys.exit(1)
+    print("Checking for virtual environment...")
+    if sys.prefix != sys.base_prefix:
+        print("Virtual environment detected.")
+        install_requirements()
 
 # Install required packages
 def install_requirements():
@@ -25,6 +16,17 @@ def install_requirements():
     except subprocess.CalledProcessError as e:
         print(f"Failed to install dependencies: {e}")
         sys.exit(1)
+
+check_venv()
+
+# Now import the necessary libraries
+import tkinter as tk
+from tkinter import filedialog, messagebox
+import pandas as pd
+import numpy as np
+import spacy
+from model_utils.useModel import get_prediction  # Assuming this function is in useModel.py
+
 
 # Initialize NLP model
 def initialize_nlp_model():
@@ -167,11 +169,7 @@ def run_pipeline():
     run_model(filepath)
 
 if __name__ == "__main__":
-    # Check virtual environment
-    check_venv()
 
-    # Install dependencies
-    install_requirements()
 
     # Initialize NLP model
     initialize_nlp_model()
