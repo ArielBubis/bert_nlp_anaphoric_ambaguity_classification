@@ -20,10 +20,11 @@ python setup_venv.py
 
 ### This script will:
 
-Check if a virtual environment is already activated.
-If not, it will create a new virtual environment in the current directory.
-Install all the required packages listed in requirements.txt.
-Step 2: Run the Application
+1. Check if a virtual environment is already activated.
+2. If not, it will create a new virtual environment in the current directory.
+3. Install all the required packages listed in requirements.txt.
+4. 
+### Step 2: Run the Application
 After setting up the virtual environment, you can run the GUI application:
 
 python GUI_v3.py
@@ -35,28 +36,27 @@ This script checks if a virtual environment is activated. If not, it creates a n
 ### GUI_v3.py
 This script provides a GUI for the Requirement Analyzer application. It includes the following functionalities:
 
-Virtual Environment Check: Ensures that a virtual environment is activated.
-NLP Model Initialization: Loads the en_core_web_sm model from spaCy, downloading it if necessary.
-File Upload: Allows users to upload an Excel or CSV file containing requirements.
-Model Execution: Processes the uploaded file using a BERT model to identify intents and resolve ambiguous intents.
-NLP Processing: Uses spaCy to resolve anaphora in the requirements and saves the results to CSV files.
-BERT_Arch.py
-This script defines a custom BERT architecture for the requirement analysis model. It includes:
+ 	- Virtual Environment Check: Ensures that a virtual environment is activated.
+ 	- NLP Model Initialization: Loads the en_core_web_sm model from spaCy, downloading it if necessary.
+ 	- File Upload: Allows users to upload an Excel or CSV file containing requirements.
+ 	- Model Execution: Processes the uploaded file using a BERT model to identify intents and resolve ambiguous intents.
+ 	- NLP Processing: Uses spaCy to resolve anaphora in the requirements and saves the results to CSV files.
+  
+### BERT_Arch.py
+ 	- This script defines a custom BERT architecture for the requirement analysis model. It includes:
 
-A dropout layer for regularization.
-ReLU activation functions.
-Dense layers for transforming the BERT embeddings.
-A softmax activation function for the output layer.
+ 	- A dropout layer for regularization.
+ 	- ReLU activation functions.
+ 	- Dense layers for transforming the BERT embeddings.
+ 	- A softmax activation function for the output layer.
 
 ## Usage
-Upload File: Click the "Upload File" button to upload an Excel or CSV file containing the requirements.
-Run Model: Click the "Run Model" button to process the uploaded file and analyze the requirements.
-Features
-NLP Model Initialization: Automatically initializes and downloads the required NLP model if not already installed.
-File Upload: Supports uploading Excel and CSV files.
-Requirement Analysis: Processes the requirements and identifies intents using a pre-trained model.
-Ambiguous Intent Resolution: Resolves ambiguous intents using NLP techniques and saves the results to CSV files.
-Contributing
-Contributions are welcome! Please fork the repository and submit a pull request with your changes.
+1. Upload File: Click the "Upload File" button to upload an Excel or CSV file containing the requirements.
+2. Run Model: Click the "Run Model" button to process the uploaded file and analyze the requirements.
+### Features
+ 	- NLP Model Initialization: Automatically initializes and downloads the required NLP model if not already installed.
+ 	- File Upload: Supports uploading Excel and CSV files.
+ 	- Requirement Analysis: Processes the requirements and identifies intents using a pre-trained model.
+ 	- Ambiguous Intent Resolution: Resolves ambiguous intents using NLP techniques and saves the results to CSV files.
 
 
