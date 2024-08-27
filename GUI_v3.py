@@ -2,23 +2,6 @@ import os
 import subprocess
 import sys
 
-def check_venv():
-    print("Checking for virtual environment...")
-    if sys.prefix != sys.base_prefix:
-        print("Virtual environment detected.")
-        install_requirements()
-
-# Install required packages
-def install_requirements():
-    try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-        print("All dependencies are installed.")
-    except subprocess.CalledProcessError as e:
-        print(f"Failed to install dependencies: {e}")
-        sys.exit(1)
-
-check_venv()
-
 # Now import the necessary libraries
 import tkinter as tk
 from tkinter import filedialog, messagebox
@@ -27,15 +10,18 @@ import numpy as np
 import spacy
 from model_utils.useModel import get_prediction  # Assuming this function is in useModel.py
 
-
 # Initialize NLP model
 def initialize_nlp_model():
     global nlp
     try:
+        model_path = spacy.util.get_package_path('en_core_web_sm')
+        print(f"The 'en_core_web_sm' model is located at: {model_path}")
         nlp = spacy.load("en_core_web_sm")
     except OSError:
         print("Model 'en_core_web_sm' is not installed. Attempting to download.")
         spacy.cli.download("en_core_web_sm")
+        model_path = spacy.util.get_package_path('en_core_web_sm')
+        print(f"The 'en_core_web_sm' model is located at: {model_path}")
         nlp = spacy.load("en_core_web_sm")
 
 # Process uploaded file and run BERT model
@@ -43,6 +29,7 @@ def run_model(filepath):
     try:
         status_var.set("Processing...")
         df = pd.read_excel(filepath)
+        df = df.drop_duplicates()  # Remove duplicates
         sentences = df['Requirements']  # Assuming requirements are in the 'Requirements' column
         results = {'Sentence': [], 'Intent': []}
         for sentence in sentences:
@@ -166,10 +153,11 @@ def run_pipeline():
     if not filepath:
         messagebox.showwarning("Input Error", "Please upload an Excel/CSV file first")
         return
+    
     run_model(filepath)
 
-if __name__ == "__main__":
-
+def main():
+    global status_var, pronouns
 
     # Initialize NLP model
     initialize_nlp_model()
@@ -197,3 +185,6 @@ if __name__ == "__main__":
     status_label.pack()
 
     root.mainloop()
+
+if __name__ == "__main__":
+    main()
