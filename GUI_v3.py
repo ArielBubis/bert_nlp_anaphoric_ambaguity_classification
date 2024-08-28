@@ -1,6 +1,12 @@
+print("Welcome to the Requirement Analyzer GUI!")
+print("Please wait while the models are loaded")
+print("This may take a few seconds...")
+
+
 import os
-import subprocess
 import sys
+import datetime
+import subprocess
 
 # Now import the necessary libraries
 import tkinter as tk
@@ -10,19 +16,28 @@ import numpy as np
 import spacy
 from model_utils.useModel import get_prediction  # Assuming this function is in useModel.py
 
-# Initialize NLP model
-def initialize_nlp_model():
+# Install required packages
+def install_requirements():
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+        print("All dependencies are installed.")
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to install dependencies: {e}")
+        sys.exit(1)
+
+
+print("Loading BERT model...")
+
+def initialize_en_core_model():
+    print("Loading NLP model...")
     global nlp
     try:
-        model_path = spacy.util.get_package_path('en_core_web_sm')
+        model_path = os.path.join(os.path.dirname(__file__), 'model_utils', 'en_core_web_sm', 'en_core_web_sm-3.7.1')
         print(f"The 'en_core_web_sm' model is located at: {model_path}")
-        nlp = spacy.load("en_core_web_sm")
-    except OSError:
-        print("Model 'en_core_web_sm' is not installed. Attempting to download.")
-        spacy.cli.download("en_core_web_sm")
-        model_path = spacy.util.get_package_path('en_core_web_sm')
-        print(f"The 'en_core_web_sm' model is located at: {model_path}")
-        nlp = spacy.load("en_core_web_sm")
+        nlp = spacy.load(model_path)
+    except Exception as e:
+        print(f"Error loading the 'en_core_web_sm' model from {model_path}: {e}")
+        sys.exit(1)  # Exit the program if the model cannot be loaded
 
 # Process uploaded file and run BERT model
 def run_model(filepath):
@@ -37,6 +52,7 @@ def run_model(filepath):
             results['Sentence'].append(sentence)
             results['Intent'].append(intent)
         results_df = pd.DataFrame(results)
+        results_df['Intent'] = results_df['Intent'].replace({0: 'ambiguous', 1: 'unambiguous'})
         ambiguous_df = results_df[results_df['Intent'] == 'ambiguous']
         
         # Save to CSV
@@ -45,16 +61,17 @@ def run_model(filepath):
         output_dir = 'output'
         os.makedirs(processed_data_dir, exist_ok=True)
         os.makedirs(output_dir, exist_ok=True)
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
         # Save the initial processed file in the processed_data directory
-        results_df.to_csv(os.path.join(processed_data_dir, 'all_intents.csv'), index=False)
-        ambiguous_df.to_csv(os.path.join(processed_data_dir, 'ambiguous_intents.csv'), index=False)
+        results_df.to_csv(os.path.join(processed_data_dir, f'all_intents_{timestamp}.csv'), index=False)
+        ambiguous_df.to_csv(os.path.join(processed_data_dir, f'ambiguous_intents_{timestamp}.csv'), index=False)
         status_var.set("Model run complete. Proceeding to NLP processing...")
 
         # Process ambiguous intents and save the resolved anaphora file in the output directory
         process_ambiguous_intents(
-            os.path.join(processed_data_dir, 'ambiguous_intents.csv'),
-            os.path.join(output_dir, 'resolved_anaphora.csv')
+            os.path.join(processed_data_dir, f'ambiguous_intents_{timestamp}.csv'),
+            os.path.join(output_dir, f'resolved_anaphora_{timestamp}.csv')
         )
     except Exception as e:
         status_var.set(f"Error during model run: {str(e)}")
@@ -138,6 +155,7 @@ def process_ambiguous_intents(input_path, output_path):
         exampleData = pd.read_csv(input_path)
         exampleData["Requirement"] = exampleData["Sentence"].apply(lambda x: applynlp(x, nlp))
         create_csv(exampleData, pronouns, output_path)
+        status_var.set("Upload an Excel/CSV file and run the model.")
         messagebox.showinfo("Success", f"Processing complete. Results saved to {output_path}")
     except Exception as e:
         status_var.set(f"Error during NLP processing: {str(e)}")
@@ -158,22 +176,12 @@ def run_pipeline():
 
 def main():
     global status_var, pronouns
+    install_requirements()
 
-    # Initialize NLP model
-    initialize_nlp_model()
-
-    # Define pronouns
-    pronouns = ["I", "me", "my", "mine", "myself", "you", "you", "your", "yours", "yourself", 
-                "he", "him", "his", "his", "himself", "she", "her", "her", "hers", "herself", 
-                "it", "it", "its", "itself", "we", "us", "our", "ours", "ourselves", "you", 
-                "you", "your", "yours", "yourselves", "they", "them", "their", "theirs", "themselves"]
-
-    # Setup GUI
     root = tk.Tk()
     root.title("Requirement Analyzer")
 
     status_var = tk.StringVar()
-    status_var.set("Upload an Excel/CSV file and run the model.")
 
     upload_button = tk.Button(root, text="Upload File", command=upload_file)
     upload_button.pack()
@@ -184,7 +192,20 @@ def main():
     status_label = tk.Label(root, textvariable=status_var)
     status_label.pack()
 
-    root.mainloop()
+    # Initialize en_core model
+    initialize_en_core_model()
 
+    print("NLP model loaded successfully.")
+
+    # Define pronouns
+    pronouns = ["I", "me", "my", "mine", "myself", "you", "you", "your", "yours", "yourself", 
+                "he", "him", "his", "his", "himself", "she", "her", "her", "hers", "herself", 
+                "it", "it", "its", "itself", "we", "us", "our", "ours", "ourselves", "you", 
+                "you", "your", "yours", "yourselves", "they", "them", "their", "theirs", "themselves"]
+
+    # Setup GUI
+    status_var.set("Upload an Excel/CSV file and run the model.")
+
+    root.mainloop()
 if __name__ == "__main__":
     main()

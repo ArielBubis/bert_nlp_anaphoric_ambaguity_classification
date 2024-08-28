@@ -16,7 +16,7 @@ def create_venv():
     venv_path = os.path.join(os.getcwd(), ".venv")
     subprocess.check_call([sys.executable, "-m", "venv", venv_path])
     print("Virtual environment created successfully.")
-    install_requirements()
+    # install_requirements()
     # activate_venv(venv_path)
 
 def activate_venv(venv_path):
