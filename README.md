@@ -116,7 +116,7 @@ This script defines a custom BERT architecture for the requirement analysis mode
   - Ambiguous Intent Resolution: Resolves ambiguous intents using NLP techniques and saves the results to CSV files.
 
 ## Model Details
-
+![link for the colab notebook used for the model finetuning](https://colab.research.google.com/drive/1gaO63M4Sh-k_Pk_lYcP8ygPb0NxqO-Pt?usp=sharing&authuser=1#scrollTo=RpLAUIrPvqDc)
 This project uses a custom BERT-based model implemented in PyTorch for intent classification. The model has been fine-tuned on a dataset of requirements to classify them as either "ambiguous" or "unambiguous."
 Model Architecture:
 
