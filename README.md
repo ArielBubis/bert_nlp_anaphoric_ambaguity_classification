@@ -12,6 +12,8 @@ This project is a GUI-based application for analyzing requirements using NLP mod
 
 ## Installation
 
+## ~ Download link for the model checkpoint and label encoder here ~
+
 ### Step 1: Set Up the Virtual Environment
 
 On the first run, you need to set up the virtual environment and install the required dependencies. Run the following command:
