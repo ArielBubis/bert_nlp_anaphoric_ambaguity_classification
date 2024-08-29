@@ -62,7 +62,7 @@ Download the model checkpoint and label encoder and place them in the /model fol
 - model:
 https://drive.google.com/file/d/17UDOKfjVnNorOYwPHeAZKcfuTm_oHpE1/view?usp=sharing
 
- -label encoder:
+- label encoder:
 https://drive.google.com/file/d/1gxJNMHJannNJzTdJD50nB2oH7RMEDspe/view?usp=sharing
 
 Download en_core_web_sm for the nlp model using the following commands
