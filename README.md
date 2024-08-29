@@ -23,7 +23,7 @@ Welcome to the Requirement Analyzer GUI! This application allows users to upload
 
 **Download an EXE version with everything built in for a one-click setup.** Note that it may take some time to load up the GUI, so please be patient when using it.
 
-[Download EXE Version Here](https://drive.google.com/file...)
+[Download EXE Version Here](https://drive.google.com/file/d/12jaryZOWv80JuvGE1GdFEkZL1OOnkuS-/view?usp=sharing)
 
 ### Option 2: Manual Setup
 
