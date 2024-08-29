@@ -19,9 +19,17 @@ Welcome to the Requirement Analyzer GUI! This application allows users to upload
 
 ## Installation
 
-## ~ Download link for the model checkpoint and label encoder here ~
+### Option 1: EXE Version (Recommended for Easy Setup)
 
-**First Clone the Repository:**
+**Download an EXE version with everything built in for a one-click setup.** Note that it may take some time to load up the GUI, so please be patient when using it.
+
+[Download EXE Version Here](https://drive.google.com/file...)
+
+### Option 2: Manual Setup
+
+If you prefer to set up the project manually or customize the environment, follow these steps:
+
+**Clone the Repository:**
 
    ```bash
    git clone https://github.com/yourusername/requirement-analyzer-gui.git
@@ -87,10 +95,8 @@ This script defines a custom BERT architecture for the requirement analysis mode
   - Requirement Analysis: Processes the requirements and identifies intents using a pre-trained model.
   - Ambiguous Intent Resolution: Resolves ambiguous intents using NLP techniques and saves the results to CSV files.
 
-
-![WhatsApp Image 2024-08-27 at 13 04 48](https://github.com/user-attachments/assets/1b2c9ab8-c649-4634-9786-20b18f114d93)
-
 ## Usage
+![WhatsApp Image 2024-08-27 at 13 04 48](https://github.com/user-attachments/assets/1b2c9ab8-c649-4634-9786-20b18f114d93)
 1. Upload File: Click the "Upload File" button to upload an Excel or CSV file containing the requirements.
 2. Run Model: Click the "Run Model" button to process the uploaded file and analyze the requirements.
 ### Features
