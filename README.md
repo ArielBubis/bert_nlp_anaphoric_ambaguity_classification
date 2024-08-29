@@ -65,6 +65,11 @@ https://drive.google.com/file/d/17UDOKfjVnNorOYwPHeAZKcfuTm_oHpE1/view?usp=shari
  -label encoder:
 https://drive.google.com/file/d/1gxJNMHJannNJzTdJD50nB2oH7RMEDspe/view?usp=sharing
 
+Download en_core_web_sm for the nlp model using the following commands
+   ```bash
+   python -m spacy download en_core_web_sm
+   ```
+
 ### Step 4: Run the Application
 After setting up the virtual environment, 
 you can run the GUI application:
