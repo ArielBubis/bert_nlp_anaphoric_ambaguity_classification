@@ -45,10 +45,12 @@ Ensure that your Python interpreter is set to the newly created virtual environm
 ### Step 3: Download the Model and Label Encoder
 
 Download the model checkpoint and label encoder and place them in the /model folder. 
-model:
 
-label encoder:
+- model:
+https://drive.google.com/file/d/17UDOKfjVnNorOYwPHeAZKcfuTm_oHpE1/view?usp=sharing
 
+ -label encoder:
+https://drive.google.com/file/d/1gxJNMHJannNJzTdJD50nB2oH7RMEDspe/view?usp=sharing
 
 ### Step 4: Run the Application
 After setting up the virtual environment, 
@@ -84,7 +86,10 @@ This script defines a custom BERT architecture for the requirement analysis mode
   - File Upload: Supports uploading Excel and CSV files.
   - Requirement Analysis: Processes the requirements and identifies intents using a pre-trained model.
   - Ambiguous Intent Resolution: Resolves ambiguous intents using NLP techniques and saves the results to CSV files.
-    
+
+
+![WhatsApp Image 2024-08-27 at 13 04 48](https://github.com/user-attachments/assets/1b2c9ab8-c649-4634-9786-20b18f114d93)
+
 ## Usage
 1. Upload File: Click the "Upload File" button to upload an Excel or CSV file containing the requirements.
 2. Run Model: Click the "Run Model" button to process the uploaded file and analyze the requirements.
