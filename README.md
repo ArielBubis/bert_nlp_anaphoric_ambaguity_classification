@@ -8,7 +8,6 @@ Welcome to the Requirement Analyzer GUI! This application allows users to upload
 - [Installation](#installation)
 - [Usage](#usage)
 - [Model Details](#model-details)
-- [Contributing](#contributing)
   
 ## Features
 
@@ -111,7 +110,7 @@ This script defines a custom BERT architecture for the requirement analysis mode
   - Requirement Analysis: Processes the requirements and identifies intents using a pre-trained model.
   - Ambiguous Intent Resolution: Resolves ambiguous intents using NLP techniques and saves the results to CSV files.
 
-Model Details
+## Model Details
 
 This project uses a custom BERT-based model implemented in PyTorch for intent classification. The model has been fine-tuned on a dataset of requirements to classify them as either "ambiguous" or "unambiguous."
 Model Architecture:
