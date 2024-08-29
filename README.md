@@ -22,6 +22,7 @@ Welcome to the Requirement Analyzer GUI! This application allows users to upload
 ### Option 1: EXE Version (Recommended for Easy Setup)
 
 **Download an EXE version with everything built in for a one-click setup.** Note that it may take some time to load up the GUI, so please be patient when using it.
+Also the file is fairy large (1.75 GB) as it hold all the libraries and the model built in.
 
 [Download EXE Version Here](https://drive.google.com/file/d/12jaryZOWv80JuvGE1GdFEkZL1OOnkuS-/view?usp=sharing)
 
