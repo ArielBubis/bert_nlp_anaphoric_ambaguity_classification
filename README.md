@@ -40,9 +40,9 @@ If you prefer to set up the project manually or customize the environment, follo
 Step 1: Set Up the Virtual Environment
 
 On the first run, set up the virtual environment and install the required dependencies by running the following command:
-python 
+ 
    ```bash
-    setup_venv.py
+   python setup_venv.py
    ```
 
 ### What This Script Will Do:
