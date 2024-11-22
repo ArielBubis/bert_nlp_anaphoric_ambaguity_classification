@@ -32,9 +32,9 @@ def initialize_en_core_model():
     print("Loading NLP model...")
     global nlp
     try:
-        model_path = os.path.join(os.path.dirname(__file__), 'model_utils', 'en_core_web_sm', 'en_core_web_sm-3.7.1')
+        model_path = os.path.join(os.path.dirname(__file__), 'model_utils', 'en_core_web_sm', 'en_core_web_sm-3.8.0')
         print(f"The 'en_core_web_sm' model is located at: {model_path}")
-        nlp = spacy.load(model_path)
+        nlp = spacy.load("en_core_web_sm")
     except Exception as e:
         print(f"Error loading the 'en_core_web_sm' model from {model_path}: {e}")
         sys.exit(1)  # Exit the program if the model cannot be loaded
