@@ -35,7 +35,7 @@ If you prefer to set up the project manually or customize the environment, follo
 
    ```bash
    git clone https://github.com/yourusername/bert_nlp_anaphoric_ambaguity_classification.git
-   cd requirement-analyzer-gui
+   cd bert_nlp_anaphoric_ambaguity_classification
    ```
 
 Step 1: Set Up the Virtual Environment
