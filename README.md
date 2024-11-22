@@ -65,8 +65,10 @@ https://drive.google.com/file/d/17UDOKfjVnNorOYwPHeAZKcfuTm_oHpE1/view?usp=shari
 - label encoder:
 https://drive.google.com/file/d/1gxJNMHJannNJzTdJD50nB2oH7RMEDspe/view?usp=sharing
 
-Download en_core_web_sm for the nlp model using the following commands
+Download [SpaCy](https://pypi.org/project/spacy/) + en_core_web_sm for the nlp model using the following commands
    ```bash
+   pip install -U pip setuptools wheel
+   pip install spacy
    python -m spacy download en_core_web_sm
    ```
 
