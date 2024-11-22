@@ -34,7 +34,7 @@ If you prefer to set up the project manually or customize the environment, follo
 **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/requirement-analyzer-gui.git
+   git clone https://github.com/yourusername/bert_nlp_anaphoric_ambaguity_classification.git
    cd requirement-analyzer-gui
    ```
 
