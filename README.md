@@ -40,10 +40,11 @@ If you prefer to set up the project manually or customize the environment, follo
 
 Step 1: Set Up the Virtual Environment
 
-On the first run, set up the virtual environment and install the required dependencies by running the following command:
+On the first run, install Python 3.12 (will fail with python 3.13) set up the virtual environment and install the required dependencies by running the following command:
  
    ```bash
-   python setup_venv.py
+   python3.12 setup_venv.py
+   pip install -r requirements.txt
    ```
 
 ### What This Script Will Do:
@@ -67,8 +68,6 @@ https://drive.google.com/file/d/1gxJNMHJannNJzTdJD50nB2oH7RMEDspe/view?usp=shari
 
 Download [SpaCy](https://pypi.org/project/spacy/) + en_core_web_sm for the nlp model using the following commands
    ```bash
-   pip install -U pip setuptools wheel
-   pip install -r requirements.txt
    python -m spacy download en_core_web_sm
    ```
 
