@@ -44,7 +44,6 @@ On the first run, install Python 3.12 (will fail with python 3.13) set up the vi
  
    ```bash
    python3.12 setup_venv.py
-   pip install -r requirements.txt
    ```
 
 ### What This Script Will Do:
