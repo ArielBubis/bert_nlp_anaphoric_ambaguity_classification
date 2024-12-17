@@ -149,6 +149,8 @@ This script defines a custom BERT architecture for the requirement analysis mode
   - Requirement Analysis: Processes the requirements and identifies intents using a pre-trained model.
   - Ambiguous Intent Resolution: Resolves ambiguous intents using NLP techniques and saves the results to CSV files.
 
+![image](https://github.com/user-attachments/assets/6bbad75b-803d-48a9-84f4-165d0759bf84)
+
 
 ## References
 Ezzini, S., Abualhaija, S., Arora, C., & Sabetzadeh, M. (2022). TAPHSIR: Towards AnaPHoric Ambiguity Detection and ReSolution In Requirements. arXiv:2206.10227v1 [cs.SE]. Available at: https://arxiv.org/abs/2206.10227
