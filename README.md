@@ -5,9 +5,11 @@ Welcome to the Requirement Analyzer GUI! This application allows users to upload
 ## Table of Contents
 
 - [Features](#features)
+- [Model Details](#model-details)
+- [Datasets](#datasets)
+- [Model Performance](#model-performance)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Model Details](#model-details)
   
 ## Features
 
@@ -16,7 +18,39 @@ Welcome to the Requirement Analyzer GUI! This application allows users to upload
 **Automated NLP Analysis**: Uses SpaCy to process text and find possible candidates resolve anaphora.
 **CSV Output**: Saves processed results in CSV format for further analysis.
 
-## Installation
+## Model Details
+[link for the colab notebook used for the model finetuning](https://colab.research.google.com/drive/1gaO63M4Sh-k_Pk_lYcP8ygPb0NxqO-Pt?usp=sharing&authuser=1#scrollTo=RpLAUIrPvqDc)
+
+This project uses a custom BERT-based model implemented in PyTorch for intent classification. The model has been fine-tuned on a dataset of requirements to classify them as either "ambiguous" or "unambiguous."
+Model Architecture:
+
+  - Pre-trained Model: DistilBERT (distilbert-base-uncased)
+  - Custom Layers: Fully connected layers with ReLU activation and dropout for regularization.
+  - Output Layer: Softmax activation for binary classification.
+## Datasets
+* DAMIR (Dataset for Anaphoric aMbiguity In Requirements)
+* ReqEval - RE dataset on anaphoric ambiguity released in the 2020 edition of the NLP4RE workshop.
+
+# Model Performance
+## Evaluation
+We evaluated both ChatGPT and our model's performance using the same 20 requirements from the "ReqEval" dataset, applying a zero-shot classification approach to compare their ability to identify ambiguous and unambiguous requirements.
+### ChatGPT Performance
+![Untitled](https://github.com/user-attachments/assets/cf267b88-b953-400f-bc6c-046539b31956)
+* Precision: 0.8 (High accuracy with clear requirements)
+* Recall: 0.4 (Struggles with ambiguous requirements)
+* Tends to "force" understanding of unclear specifications
+### Our Model Performance
+* Accuracy: 0.737
+* Recall: 0.737
+* Precision: 0.737
+![Untitled](https://github.com/user-attachments/assets/c53d305b-df5a-4f67-bcc7-9f2aa978ea1c)
+
+## Key Insights
+Our model provides a more balanced approach to identifying ambiguous requirements. Unlike ChatGPT, which misses many ambiguous cases, we prioritize recall to catch potential issues early in the project lifecycle.
+The consistent 0.737 score across metrics indicates a reliable method for detecting requirement ambiguities, helping prevent costly corrections in later development stages.
+
+
+# Installation
 
 ### Option 1: EXE Version (Recommended for Easy Setup)
 
@@ -115,12 +149,12 @@ This script defines a custom BERT architecture for the requirement analysis mode
   - Requirement Analysis: Processes the requirements and identifies intents using a pre-trained model.
   - Ambiguous Intent Resolution: Resolves ambiguous intents using NLP techniques and saves the results to CSV files.
 
-## Model Details
-[link for the colab notebook used for the model finetuning](https://colab.research.google.com/drive/1gaO63M4Sh-k_Pk_lYcP8ygPb0NxqO-Pt?usp=sharing&authuser=1#scrollTo=RpLAUIrPvqDc)
 
-This project uses a custom BERT-based model implemented in PyTorch for intent classification. The model has been fine-tuned on a dataset of requirements to classify them as either "ambiguous" or "unambiguous."
-Model Architecture:
+## References
+Ezzini, S., Abualhaija, S., Arora, C., & Sabetzadeh, M. (2022). TAPHSIR: Towards AnaPHoric Ambiguity Detection and ReSolution In Requirements. arXiv:2206.10227v1 [cs.SE]. Available at: https://arxiv.org/abs/2206.10227
+Ezzini, S., Abualhaija, S., Arora, C., & Sabetzadeh, M. (2022). Automated Handling of Anaphoric Ambiguity in Requirements: A Multi-solution Study. IEEE/ACM 44th International Conference on Software Engineering (ICSE). Available at: https://dl.acm.org/doi/10.1145/3510003.3510157
+Qiu, K., Puccinelli, N., Ciniselli, M., & Di Grazia, L. (2024). From Today's Code to Tomorrow's Symphony: The AI Transformation of Developer's Routine by 2030. arXiv:2405.12731v2 [cs.SE]. Available at: https://arxiv.org/pdf/2405.12731
+Sridhara, G., H.G., R., & Mazumdar, S. (2023). ChatGPT: A Study on its Utility for Ubiquitous Software Engineering Tasks. arXiv:2305.16837v1 [cs.SE]. Available at: https://arxiv.org/pdf/2305.16837
 
-  - Pre-trained Model: DistilBERT (distilbert-base-uncased)
-  - Custom Layers: Fully connected layers with ReLU activation and dropout for regularization.
-  - Output Layer: Softmax activation for binary classification.
+License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
